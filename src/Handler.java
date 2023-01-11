@@ -32,7 +32,6 @@ class Handler {
             allPaths.add(path);
         }
         iter = files.iterator();
-        System.out.println(allPaths);
         while(iter.hasNext()) {                                                            //выводим абсолютные пути к файлам
             String path = iter.next().getPath();
             try {
@@ -42,7 +41,6 @@ class Handler {
             }
             allPaths.add(path);
             require = FileProcessing.findPath(content);
-            System.out.println(require);
             for (String req : require) {
                 FileProcessing.fileExist(path, req, allPaths);
                 if (!req.equals("none")) {
@@ -72,7 +70,6 @@ class Handler {
             way.add(path);
             DirectoryProcessing.cyclesSearch(path, way, allPaths);
         }
-        System.out.println(sortedList);
         getFinalFile(sortedList);
     }
 }
